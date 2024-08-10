@@ -1,0 +1,37 @@
+/* Hero Section Styles */
+.hero {
+    height: 80vh; /* Set height to cover most of the viewport */
+    background-image: url('https://your-image-url.com/background.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Ensure the background covers the entire section */
+    background-position: center; /* Center the background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  
+  /* Hero Content */
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    background-color: #ff7f50; /* Coral color */
+    padding: 0.75rem 2rem;
+    border-radius: 0.375rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff6347; /* Slightly darker coral */
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
