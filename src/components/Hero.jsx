@@ -8,6 +8,7 @@ const Hero = () => {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: "url('/api/placeholder/1920/1080')",
+        //   backgroundImage: "Url('/api/placeholder/')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'grayscale(100%) brightness(50%)'
