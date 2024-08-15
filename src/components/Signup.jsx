@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate  } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 function Signup() {
@@ -9,9 +9,10 @@ function Signup() {
   const passref = useRef();
   // const {signup} = useAuth()
 
-  const { signup, currentUser } = useAuth();
+  const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -22,6 +23,8 @@ function Signup() {
       setError("");
       setLoading(true);
       await signup(emailref.current.value, passref.current.value);
+      navigate("/")
+
     } catch (error) {
       console.error("Error during signup:", error.message); // Log the error to the console
       setError(error.message || "Failed to create an account"); // Display specific error messages if available
@@ -63,7 +66,7 @@ function Signup() {
                 Welcome to Squid 🦑
               </h1>
 
-              {currentUser}
+              {/* {currentUser} */}
 
               <p class="mt-4 leading-relaxed text-gray-500 dark:text-gray-400">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -161,14 +164,14 @@ function Signup() {
 
                 <div class="col-span-6">
                   <p class="text-sm text-gray-500 dark:text-gray-400">
-                    By creating an account, you agree to our
-                    <a
+                    By creating an account, you agree to our &nbsp;
+                     <a
                       href="#"
                       class="text-gray-700 underline dark:text-gray-200"
                     >
                       terms and conditions
                     </a>
-                    and
+                    &nbsp;and&nbsp;
                     <a
                       href="#"
                       class="text-gray-700 underline dark:text-gray-200"
@@ -194,7 +197,7 @@ function Signup() {
                       to="/login"
                       class="text-gray-700 underline dark:text-gray-200"
                     >
-                      Log in
+                      &nbsp;Log in
                     </Link>
                     .
                   </p>
