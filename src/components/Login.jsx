@@ -135,6 +135,16 @@ function Login() {
                     </Link>
                     .
                   </p>
+                  <p class="mt-4 text-sm text-gray-500 sm:mt-0 dark:text-gray-400">
+                    {/* Forgot Password? */}
+                    <Link
+                      to="/ForgotPassword"
+                      class="text-gray-700 underline dark:text-gray-200"
+                    >
+                      &nbsp;Reset Password
+                    </Link>
+                    .
+                  </p>
                 </div>
               </form>
             </div>
