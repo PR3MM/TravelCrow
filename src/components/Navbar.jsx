@@ -1,19 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { User, ChevronDown } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 import './Navbar.css'; 
-import { Link ,NavLink } from 'react-router-dom'
 
-function Navbar() {
+const Navbar = () => {
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const { currentUser, Logout } = useAuth();
+  const [error, setError] = useState("");
+
+  const handleLogout = async () => {
+    setError('');
+    try {
+      await Logout();
+      navigate('/');
+      console.log('Logout successful');
+    } catch (error) {
+      setError(error.message);
+      console.log(error);
+    }
+  };
+
   return (
-    <nav className="h-16 w-full bg-black flex items-center justify-between px-6 shadow-md">
-      <Link to='/' className=" sm:text-5xl md:text-4xl font-extrabold text-white mb-6  mt-3">TravelCrow</Link>
-      <div className="flex gap-6">
-        <Link to="/about" className="text-xl font-bold text-white hover:text-gray-300 transition-colors font-custom">About</Link>
-        <Link to="/destinations" className="text-xl font-bold text-white hover:text-gray-300 transition-colors font-custom">Destinations</Link>
-        <Link to="/login" className="text-xl font-bold text-white hover:text-gray-300 transition-colors font-custom">Login</Link>
-        <Link to="/signup" className="text-xl font-bold text-white hover:text-gray-300 transition-colors font-custom">Sign Up</Link>
+    <nav className="absolute top-0 h-16 w-full text-white backdrop-filter backdrop-blur-lg flex items-center justify-between px-6 z-20 transition-all duration-300 ease-in-out">
+      <Link to="/" className="text-3xl font-bold hover:text-gray-300 transition-colors">
+        TravelCrow
+      </Link>
+      <div className="flex items-center space-x-6">
+        <NavLink 
+          to="/about" 
+          className={({ isActive }) => 
+            `text-lg sm:text-xl font-semibold ${isActive ? 'text-gray-300' : 'text-white'} hover:text-gray-300 transition-colors`
+          }
+        >
+          About
+        </NavLink>
+        <NavLink 
+          to="/destinations" 
+          className={({ isActive }) => 
+            `text-lg sm:text-xl font-semibold ${isActive ? 'text-gray-300' : 'text-white'} hover:text-gray-300 transition-colors`
+          }
+        >
+          Destinations
+        </NavLink>
+        <NavLink 
+          to="/login" 
+          className={({ isActive }) => 
+            `text-lg sm:text-xl font-semibold ${isActive ? 'text-gray-300' : 'text-white'} hover:text-gray-300 transition-colors`
+          }
+        >
+          Login
+        </NavLink>
+        <NavLink 
+          to="/signup" 
+          className={({ isActive }) => 
+            `text-lg sm:text-xl font-semibold ${isActive ? 'text-gray-300' : 'text-white'} hover:text-gray-300 transition-colors`
+          }
+        >
+          Sign Up
+        </NavLink>
+        
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

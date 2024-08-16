@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { auth } from '../Firebase';  // Make sure the path is correct
+import { signOut } from 'firebase/auth';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword , sendPasswordResetEmail} from 'firebase/auth';
 
 const AuthContext = React.createContext();
@@ -18,8 +19,14 @@ export default function AuthProvider({ children }) {
   function Login(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
-  function Logout(email, password) {
-    return  auth.signOut();
+  async function Logout() {
+    try {
+      await signOut(auth); // Use signOut from Firebase
+      console.error('signing out:');  
+    } catch (error) {
+      console.error('Error signing out:', error); // Handle error
+      throw error;
+    }
   }
   function resetPassword(email) {
     return sendPasswordResetEmail(auth, email);
