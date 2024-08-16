@@ -17,6 +17,7 @@ import Destinations from "./components/Destinations.jsx";
 import OurServices from "./components/OurServices.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import ForgotPassword from "./components/ForgotPassword.jsx";
+import ViewProfile from "./components/ViewProfile.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="about" element={<About />} />
       <Route path="ForgotPassword" element={<ForgotPassword />} />
+      <Route path="profile" element={<ViewProfile />} />
     </Route>
   )
 );
