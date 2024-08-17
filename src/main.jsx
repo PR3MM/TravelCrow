@@ -20,6 +20,7 @@ import ForgotPassword from "./components/ForgotPassword.jsx";
 import ViewProfile from "./components/ViewProfile.jsx";
 import AIContentPage from "./components/AIContentPage.jsx";
 import NewDestinationPage from "./components/NewDestinationPage.jsx";
+import { Analytics } from "@vercel/analytics/react"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
