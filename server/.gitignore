@@ -1,0 +1,22 @@
+# Node modules directory
+node_modules/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Build artifacts
+dist/
+build/
+
+# OS-specific files
+.DS_Store    # macOS
+Thumbs.db    # Windows
+
+# Temporary files
+*.tmp
+*.swp
+
+# IDE-specific
