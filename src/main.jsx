@@ -20,7 +20,8 @@ import ForgotPassword from "./components/ForgotPassword.jsx";
 import ViewProfile from "./components/ViewProfile.jsx";
 import AIContentPage from "./components/AIContentPage.jsx";
 import NewDestinationPage from "./components/NewDestinationPage.jsx";
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <RouterProvider router={router} />
-    <SpeedInsights />
+    <Analytics />
+      <SpeedInsights />
   </AuthProvider>
 );
