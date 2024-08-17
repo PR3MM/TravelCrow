@@ -45,7 +45,7 @@ const Navbar = () => {
           About
         </Link>
         <Link
-          to="/destinations"
+          to="/destination"
           className="text-lg sm:text-xl font-semibold text-white hover:text-gray-300 transition-colors"
         >
           Destinations

@@ -1,4 +1,5 @@
   import React from 'react';
+  import { Link } from 'react-router-dom';
 
   const Hero = () => {
     return (
@@ -29,18 +30,18 @@
             Embark on a journey of a lifetime with our exclusive travel experiences tailored to inspire and thrill.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <a 
-              href="#explore" 
+            <Link 
+              to="/Destination" 
               className="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-black bg-white hover:bg-gray-200 hover:text-black transition duration-300 ease-in-out"
             >
               Explore Now <span className="ml-2">→</span>
-            </a>
-            <a 
+            </Link>
+            {/* <a 
               href="#watch-video" 
               className="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-black transition duration-300 ease-in-out"
             >
               Watch Video
-            </a>
+            </a> */}
           </div>
         </div>
         
