@@ -36,7 +36,7 @@ const Navbar = () => {
           About
         </NavLink>
         <NavLink 
-          to="/destinations" 
+          to="/destination" 
           className={({ isActive }) => 
             `text-lg sm:text-xl font-semibold ${isActive ? 'text-gray-300' : 'text-white'} hover:text-gray-300 transition-colors`
           }
@@ -51,14 +51,14 @@ const Navbar = () => {
         >
           Login
         </NavLink>
-        <NavLink 
+        {/* <NavLink 
           to="/signup" 
           className={({ isActive }) => 
             `text-lg sm:text-xl font-semibold ${isActive ? 'text-gray-300' : 'text-white'} hover:text-gray-300 transition-colors`
           }
         >
           Sign Up
-        </NavLink>
+        </NavLink> */}
         
       </div>
     </nav>

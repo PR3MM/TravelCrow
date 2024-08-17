@@ -6,7 +6,7 @@ import axios from "axios";
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
-  apiKey : process.env.OPENAI_API_KEY,
+  apiKey : process.env.OPENAI_API_KEY ,
   Model : process.env.MODEL
 
   
@@ -92,38 +92,38 @@ export async function generateHiddenAttractions(destination) {
     .filter((line) => line.trim() !== "");
 }
 
-// export async function generateTravelTips(destination) {
-//   const response = await openai.chat.completions.create({
-//     model: "meta-llama/llama-3.1-8b-instruct:free",
+export async function generateTravelTips(destination) {
+  const response = await openai.chat.completions.create({
+    model: "meta-llama/llama-3.1-8b-instruct:free",
 
-//     messages: [
-//       {
-//         role: "system",
-//         content:
-//           "You are a seasoned traveler. Provide 3 useful travel tips, one per line.",
-//       },
-//       {
-//         role: "user",
-//         content: `Give 3 travel tips for visiting ${destination}`,
-//       },
-//     ],
-//     max_tokens: 150,
-//   });
-//   return response.choices[0].message.content
-//     .split("\n")
-//     .filter((line) => line.trim() !== "");
-// }
+    messages: [
+      {
+        role: "system",
+        content:
+          "You are a seasoned traveler. Provide 3 useful travel tips, one per line.",
+      },
+      {
+        role: "user",
+        content: `Give 3 travel tips for visiting ${destination}`,
+      },
+    ],
+    max_tokens: 150,
+  });
+  return response.choices[0].message.content
+    .split("\n")
+    .filter((line) => line.trim() !== "");
+}
 
-// export async function generatePhotos(destination) {
-//   const response = await post('https://api.openai.com/v1/images/generations', {
-//     prompt: `Beautiful photograph of ${destination}`,
-//     n: 4,
-//     size: "1024x1024"
-//   }, {
-//     headers: {
-//       'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-//       'Content-Type': 'application/json'
-//     }
-//   });
-//   return response.data.data.map(item => item.url);
-// }
+export async function generatePhotos(destination) {
+  const response = await post('https://api.openai.com/v1/images/generations', {
+    prompt: `Beautiful photograph of ${destination}`,
+    n: 4,
+    size: "1024x1024"
+  }, {
+    headers: {
+      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  return response.data.data.map(item => item.url);
+}

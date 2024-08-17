@@ -19,13 +19,14 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import ForgotPassword from "./components/ForgotPassword.jsx";
 import ViewProfile from "./components/ViewProfile.jsx";
 import AIContentPage from "./components/AIContentPage.jsx";
+import NewDestinationPage from "./components/NewDestinationPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route element={<PrivateRoute />}>
         <Route path="" element={<Home />} />
-        <Route path="destinations" element={<Destinations />} />
+        <Route path="destination" element={<NewDestinationPage />} />
         <Route path="ourservices" element={<OurServices />} />
       </Route>
       <Route path="signup" element={<Signup />} />
