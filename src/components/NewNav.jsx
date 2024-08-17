@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { User, ChevronDown } from "lucide-react";
+import { User, ChevronDown, Search } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
   const { currentUser, Logout } = useAuth();
   const [error, setError] = useState("");
 
@@ -19,6 +20,12 @@ const Navbar = () => {
     } catch (error) {
       setError(error.message);
       console.log(error);
+    }
+  }
+
+  function handleSearch() {
+    if (searchQuery.trim()) {
+      navigate(`/destination/${encodeURIComponent(searchQuery)}`);
     }
   }
 
@@ -43,6 +50,21 @@ const Navbar = () => {
         >
           Destinations
         </Link>
+        <div className="relative flex items-center">
+          <input
+            type="text"
+            placeholder="Search Destinations.."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="p-1 rounded-md border border-gray-300 text-black"
+          />
+          <button
+            onClick={handleSearch}
+            className="ml-2 p-2 bg-black text-white rounded-md hover:text-gray-300 transition-colors"
+          >
+            <Search size={20} />
+          </button>
+        </div>
         <div className="relative">
           <button
             onClick={() => setIsProfileOpen(!isProfileOpen)}
