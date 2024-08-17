@@ -35,16 +35,14 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="ForgotPassword" element={<ForgotPassword />} />
       <Route path="profile" element={<ViewProfile />} />
-      {/* <Route path="/destination/:destination" component={AIContentPage} /> */}
       <Route path="destination/:destination" element={<AIContentPage />} />
-
-
-      </Route>
+    </Route>
   )
 );
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <RouterProvider router={router} />
+    <SpeedInsights />
   </AuthProvider>
 );
