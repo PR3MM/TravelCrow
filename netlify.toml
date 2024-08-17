@@ -1,0 +1,13 @@
+[build]
+  # Define the build command and the directory to publish
+  command = "npm run build"
+  publish = "."
+
+[functions]
+  # Specify the directory for Netlify functions
+  directory = "server/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
