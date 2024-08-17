@@ -23,6 +23,10 @@ import NewDestinationPage from "./components/NewDestinationPage.jsx";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
+import { inject } from '@vercel/analytics';
+
+inject();
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -41,12 +45,22 @@ const router = createBrowserRouter(
   )
 );
 
+const DebugAnalytics = () => {
+  console.log('Analytics component rendered');
+  return <Analytics />;
+};
+
+const DebugSpeedInsights = () => {
+  console.log('SpeedInsights component rendered');
+  return <SpeedInsights />;
+};
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
-      <Analytics />
-      <SpeedInsights />
+      <DebugAnalytics />
+      <DebugSpeedInsights />
     </AuthProvider>
   </StrictMode>
 );
