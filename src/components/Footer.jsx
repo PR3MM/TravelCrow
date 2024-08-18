@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 function Footer() {
@@ -27,7 +28,7 @@ function Footer() {
             <h2 className="title-font font-bold text-white tracking-widest text-lg mb-3">SERVICES</h2>
             <nav className="list-none mb-10">
               <li className="mb-2">
-                <a className="text-gray-400 hover:text-white transition-colors duration-300">Tour Packages</a>
+                <Link to="/tour-packages" className="text-gray-400 hover:text-white transition-colors duration-300 "> Tour Packages</Link>
               </li>
               <li className="mb-2">
                 <a className="text-gray-400 hover:text-white transition-colors duration-300">Flight Booking</a>
