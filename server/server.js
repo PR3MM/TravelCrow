@@ -9,7 +9,8 @@ const port = 3000;
 app.use(cors());
 
 // Use your routes
-app.use('/api', router);
+app.use('/', router);
+// app.use('/api', router);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

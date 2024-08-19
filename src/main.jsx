@@ -25,6 +25,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import { inject } from '@vercel/analytics';
 import TourPackagesPage from "./components/TourPackage.jsx";
+import AITourPackage from "./components/AITourPackage.jsx"
 
 inject();
 
@@ -42,7 +43,8 @@ const router = createBrowserRouter(
       <Route path="ForgotPassword" element={<ForgotPassword />} />
       <Route path="profile" element={<ViewProfile />} />
       <Route path="destination/:destination" element={<AIContentPage />} />
-      <Route path="tour-packages" element={<TourPackagesPage />} />
+      <Route path="tour-packages/" element={<TourPackagesPage />} />
+      <Route path="tour-packages/:destination" element={<AITourPackage />} />
     </Route>
   )
 );

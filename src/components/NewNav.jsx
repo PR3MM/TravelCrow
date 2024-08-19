@@ -50,6 +50,12 @@ const Navbar = () => {
         >
           Destinations
         </Link>
+        <Link
+          to="/tour-packages"
+          className="text-lg sm:text-xl font-semibold text-white hover:text-gray-300 transition-colors"
+        >
+          Tour Packages
+        </Link>
         <div className="relative flex items-center">
           <input
             type="text"
