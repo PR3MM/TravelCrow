@@ -1,6 +1,10 @@
-import { generateDescription, generateAttractions, generateHiddenAttractions , generateTravelTips,generateExtraDescription } from '../services/openaiService.js';
-// import { generateDescription } from '../services/openaiService.js';
-// import { generateDescription } from '../services/openaiService.js';
+import { 
+  generateDescription, 
+  generateAttractions, 
+  generateHiddenAttractions, 
+  generateTravelTips, 
+  generateExtraDescription 
+} from '../services/openaiService.js';
 
 export async function getAIContent(req, res) {
   const { destination } = req.params;
@@ -16,7 +20,6 @@ export async function getAIContent(req, res) {
     ]);
 
     // const photos = await generatePhotos(destination);
-
     res.json({
       description,
       ExtraDescription,
@@ -25,6 +28,7 @@ export async function getAIContent(req, res) {
       travelTips,
     //   photos
     });
+    
   } catch (error) {
     console.error('Error generating AI content:', error);
     res.status(500).json({ error: 'Failed to generate AI content' });

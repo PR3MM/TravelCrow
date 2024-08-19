@@ -85,7 +85,7 @@ export async function generateHiddenAttractions(destination) {
       },
       { role: "user", content: `List 5 Hidden attractions in or near ${destination}` },
     ],
-    // max_tokens: 150
+    max_tokens: 150
   });
   return response.choices[0].message.content
     .split("\n")
