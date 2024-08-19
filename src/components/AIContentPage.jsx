@@ -30,7 +30,7 @@ export default function AIContentPage() {
       }
       const data = await response.json();
       {
-        console.log(data.HiddenAttractions);
+        // console.log(data.HiddenAttractions);
       }
       setContent({
         description: data.description || "",

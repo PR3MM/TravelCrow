@@ -127,3 +127,4 @@ export async function generatePhotos(destination) {
   });
   return response.data.data.map(item => item.url);
 }
+  
