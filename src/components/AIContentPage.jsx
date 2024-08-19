@@ -29,13 +29,16 @@ export default function AIContentPage() {
         throw new Error("Failed to fetch AI content");
       }
       const data = await response.json();
+      {
+        console.log(data.HiddenAttractions);
+      }
       setContent({
         description: data.description || "",
-        history: data.description || "",
+        history: data.ExtraDescription || "",
         // history: Array.isArray(data.history) ? data.history : [],
         attractions: Array.isArray(data.attractions) ? data.attractions : [],
         // Hiddenattractions: Array.isArray(data.Hiddenattractions) ? data.Hiddenattractions : [],
-        Hiddenattractions: data.description || "",
+        Hiddenattractions: data.HiddenAttractions || "",
         photos: Array.isArray(data.photos) ? data.photos : [],
         travelTips: Array.isArray(data.travelTips) ? data.travelTips : [],
       });
@@ -76,18 +79,15 @@ export default function AIContentPage() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">History and Culture</h2>
         <ul className="list-disc pl-5">
-        <p className="text-lg">{content.description}</p>
+          <p className="text-lg">{content.history}</p>
 
-
-
-        {/* {Array.isArray(content.history) && content.history.length > 0 ? (
+          {/* {Array.isArray(content.history) && content.history.length > 0 ? (
             content.history.map((tip, index) => (
               <li key={index} className="text-lg">{tip}</li>
             ))
           ) : (
             <li className="text-lg text-gray-500">No History available</li>
           )} */}
-
 
           {/* {content.history.length > 0 ? (
             content.history.map((history, index) => (
@@ -104,14 +104,15 @@ export default function AIContentPage() {
         <ul className="list-disc pl-5">
           {content.attractions.length > 0 ? (
             content.attractions.map((attraction, index) => (
-              <li key={index} className="text-lg">{attraction}</li>
+              <li key={index} className="text-lg">
+                {attraction}
+              </li>
             ))
           ) : (
             <li className="text-lg text-gray-500">No attractions available</li>
           )}
         </ul>
       </section>
-
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Top Hidden Attractions</h2>
@@ -124,9 +125,7 @@ export default function AIContentPage() {
             <li className="text-lg text-gray-500">No Hidden attractions available</li>
           )}
         </ul> */}
-        <p className="text-lg">{content.description}</p>
-
-
+        <p className="text-lg">{content.Hiddenattractions}</p>
       </section>
 
       <section className="mb-8">
@@ -150,9 +149,12 @@ export default function AIContentPage() {
       <section>
         <h2 className="text-2xl font-semibold mb-4">Travel Tips</h2>
         <ul className="list-disc pl-5">
-          {Array.isArray(content.travelTips) && content.travelTips.length > 0 ? (
+          {Array.isArray(content.travelTips) &&
+          content.travelTips.length > 0 ? (
             content.travelTips.map((tip, index) => (
-              <li key={index} className="text-lg">{tip}</li>
+              <li key={index} className="text-lg">
+                {tip}
+              </li>
             ))
           ) : (
             <li className="text-lg text-gray-500">No travel tips available</li>
