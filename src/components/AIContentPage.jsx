@@ -23,9 +23,9 @@ export default function AIContentPage() {
     setError(null);
     try {
       const response = await fetch(
-        `https://travelcrow.onrender.com/api/ai-content/${destination}`
+        // `https://travelcrow.onrender.com/api/ai-content/${destination}`
       // const response = await fetch(
-      //   `http://localhost:3000/api/ai-content/${destination}`
+        `http://localhost:3000/api/ai-content/${destination}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch AI content");
