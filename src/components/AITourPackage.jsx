@@ -15,11 +15,11 @@ export default function AITourPackage() {
   }, [destination]);
 
   const fetchAIContent = async () => {
-    setLoading(true);
+    // setLoading(true);
     setError(null);
     try {
-      // const response = await fetch(`http://localhost:3000/api/tour-packages/${destination}`);
-      const response = await fetch(`https://travelcrow.onrender.com/api/tour-packages/${destination}`);
+      const response = await fetch(`http://localhost:3000/api/tour-packages/${destination}`);
+      // const response = await fetch(`https://travelcrow.onrender.com/api/tour-packages/${destination}`);
       if (!response.ok) {
         throw new Error('Failed to fetch AI content');
       }
