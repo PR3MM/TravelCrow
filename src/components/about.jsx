@@ -6,9 +6,9 @@ function About() {
     <section className="text-gray-300 body-font bg-black">
       <div className="container px-5 py-24 mx-auto">
         <div className="text-center w-full mb-20">
-          <h1 className="text-4xl font-bold mb-4 text-white">About Yatra Discoveries</h1>
+          <h1 className="text-4xl font-bold mb-4 text-white">About TravelCrow</h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-gray-300">
-            Embark on a journey through the vibrant tapestry of India with Yatra Discoveries, your gateway to unforgettable travel experiences.
+            Embark on a journey through the vibrant tapestry of India with TravelCrow, your gateway to unforgettable travel experiences.
           </p>
         </div>
         <div className="flex flex-wrap -m-4">
@@ -49,13 +49,13 @@ function About() {
         <div className="flex flex-wrap mt-16">
           {[
             {
-              quote: "Yatra Discoveries transformed our family trip into an unforgettable journey through India. Their attention to detail and knowledge of hidden gems made all the difference. We can't wait to explore more of India with them!",
+              quote: "TravelCrow transformed our family trip into an unforgettable journey through India. Their attention to detail and knowledge of hidden gems made all the difference. We can't wait to explore more of India with them!",
               name: "Priya Sharma",
               title: "Adventure Enthusiast",
               img:"https://img.freepik.com/premium-photo/indian-woman-portrait-temple_53876-71699.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid"
             },
             {
-              quote: "As a solo traveler, I was amazed by the personalized experiences Yatra Discoveries crafted for me. From bustling markets to serene temples, every moment was magical. Truly the best way to discover India!",
+              quote: "As a solo traveler, I was amazed by the personalized experiences TravelCrow crafted for me. From bustling markets to serene temples, every moment was magical. Truly the best way to discover India!",
               name: "Rahul Kapoor",
               title: "Cultural Explorer",
               img:"https://img.freepik.com/free-photo/cheerful-indian-businessman-smiling-closeup-portrait-jobs-career-campaign_53876-129417.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid"
