@@ -5,7 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://travelcrow.vercel.app/'
+  }));
 app.use(json());
 app.use('/api', aiContentRoutes);
 
