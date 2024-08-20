@@ -55,14 +55,14 @@
 
         {/* Social media links */}
         <div className="absolute bottom-10 right-10 z-10 flex space-x-4">
-          <a href="#instagram" className="text-white hover:text-gray-300 transition duration-300">
-            IG
+          <a href="https://www.instagram.com/premdhote17/" className="text-white hover:text-gray-300 transition duration-300">
+            <img className="w-6 h-6 " src="https://cdn-icons-png.freepik.com/256/6422/6422200.png?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid" alt="" />
           </a>
           <a href="#twitter" className="text-white hover:text-gray-300 transition duration-300">
-            TW
+            <img  className="w-6 h-6 brightness-100  "src="https://cdn-icons-png.freepik.com/256/12107/12107611.png?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid" alt="" />
           </a>
-          <a href="#facebook" className="text-white hover:text-gray-300 transition duration-300">
-            FB
+          <a href="https://github.com/PR3MM" className="text-white hover:text-gray-300 transition duration-300">
+            <img  className="w-6 h-6  brightness-100 "src="https://cdn-icons-png.freepik.com/256/6424/6424084.png?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid" alt="" />
           </a>
         </div>
 

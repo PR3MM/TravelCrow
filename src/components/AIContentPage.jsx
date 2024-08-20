@@ -29,15 +29,10 @@ export default function AIContentPage() {
         throw new Error("Failed to fetch AI content");
       }
       const data = await response.json();
-      {
-        // console.log(data.HiddenAttractions);
-      }
       setContent({
         description: data.description || "",
         history: data.ExtraDescription || "",
-        // history: Array.isArray(data.history) ? data.history : [],
         attractions: Array.isArray(data.attractions) ? data.attractions : [],
-        // Hiddenattractions: Array.isArray(data.Hiddenattractions) ? data.Hiddenattractions : [],
         Hiddenattractions: data.HiddenAttractions || "",
         photos: Array.isArray(data.photos) ? data.photos : [],
         travelTips: Array.isArray(data.travelTips) ? data.travelTips : [],
@@ -52,84 +47,78 @@ export default function AIContentPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen text-lg text-white bg-black">
-        Generating amazing content for {destination}...
+        Loading... Please wait while we fetch amazing content for {destination}
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center h-screen text-lg text-red-500">
-        Error: {error}
+      <div className="flex items-center justify-center h-screen text-lg text-white bg-black">
+        An error occurred: {error}
+        <button
+          className="bg-white text-black px-4 py-2 rounded-md ml-4"
+          onClick={() => window.location.reload()}
+        >
+          Retry
+        </button>
       </div>
     );
   }
 
+
   return (
-    <div className="bg-black text-white min-h-screen pt-20">
+    <div className="bg-black text-white min-h-screen pt-20 px-4 sm:px-8 md:px-16">
       <header className="mb-8 text-center">
-        <h1 className="text-4xl font-bold">{destination}</h1>
+        <h1 className="text-5xl font-bold tracking-wide mb-2">
+          {destination}
+        </h1>
+        <p className="text-xl font-light text-gray-400">
+          Discover the wonders of {destination}
+        </p>
       </header>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">About {destination}</h2>
-        <p className="text-lg">{content.description}</p>
+      <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
+        <h2 className="text-3xl font-semibold mb-4">About {destination}</h2>
+        <p className="text-lg leading-relaxed">{content.description}</p>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">History and Culture</h2>
-        <ul className="list-disc pl-5">
-          <p className="text-lg">{content.history}</p>
-
-          {/* {Array.isArray(content.history) && content.history.length > 0 ? (
-            content.history.map((tip, index) => (
-              <li key={index} className="text-lg">{tip}</li>
-            ))
-          ) : (
-            <li className="text-lg text-gray-500">No History available</li>
-          )} */}
-
-          {/* {content.history.length > 0 ? (
-            content.history.map((history, index) => (
-              <li key={index} className="text-lg">{history}</li>
-            ))
-          ) : (
-            <li className="text-lg text-gray-500">No history available</li>
-          )} */}
-        </ul>
+      <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
+        <h2 className="text-3xl font-semibold mb-4">History and Culture</h2>
+        <p className="text-lg leading-relaxed">{content.history}</p>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Top Attractions</h2>
-        <ul className="list-disc pl-5">
+      <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
+        <h2 className="text-3xl font-semibold mb-4">Top Attractions</h2>
+        <ul className="list-disc pl-5 space-y-2">
           {content.attractions.length > 0 ? (
             content.attractions.map((attraction, index) => (
-              <li key={index} className="text-lg">
+              <li
+                key={index}
+                className="text-lg leading-relaxed hover:underline"
+              >
                 {attraction}
               </li>
             ))
           ) : (
-            <li className="text-lg text-gray-500">No attractions available</li>
+            <li className="text-lg text-gray-500">
+              No attractions available
+            </li>
           )}
         </ul>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Top Hidden Attractions</h2>
-        {/* <ul className="list-disc pl-5">
-          {content.Hiddenattractions.length > 0 ? (
-            content.Hiddenattractions.map((attraction, index) => (
-              <li key={index} className="text-lg">{attraction}</li>
-            ))
-          ) : (
-            <li className="text-lg text-gray-500">No Hidden attractions available</li>
-          )}
-        </ul> */}
-        <p className="text-lg">{content.Hiddenattractions}</p>
+      <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
+        <h2 className="text-3xl font-semibold mb-4">
+          Top Hidden Attractions
+        </h2>
+        <p className="text-lg leading-relaxed">
+          {content.Hiddenattractions}
+        </p>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Photo Gallery</h2>
+      {/* <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
+        <h2 className="text-3xl font-semibold mb-4">Photo Gallery</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {content.photos.length > 0 ? (
             content.photos.map((photo, index) => (
@@ -137,22 +126,25 @@ export default function AIContentPage() {
                 key={index}
                 src={photo}
                 alt={`${destination} - Photo ${index + 1}`}
-                className="w-full h-64 object-cover rounded-lg border border-gray-200"
+                className="w-full h-64 object-cover rounded-lg shadow-lg hover:opacity-90 transition duration-300"
               />
             ))
           ) : (
             <p className="text-lg text-gray-500">No photos available</p>
           )}
         </div>
-      </section>
+      </section> */}
 
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Travel Tips</h2>
-        <ul className="list-disc pl-5">
+      <section className="pb-12  bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
+        <h2 className="text-3xl font-semibold mb-4">Travel Tips</h2>
+        <ul className="list-disc pl-5 space-y-2">
           {Array.isArray(content.travelTips) &&
           content.travelTips.length > 0 ? (
             content.travelTips.map((tip, index) => (
-              <li key={index} className="text-lg">
+              <li
+                key={index}
+                className="text-lg leading-relaxed hover:underline"
+              >
                 {tip}
               </li>
             ))
