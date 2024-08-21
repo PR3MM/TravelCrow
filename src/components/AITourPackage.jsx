@@ -61,7 +61,6 @@ export default function AITourPackage() {
       </div>
     );
   }
-
   const renderTourPackage = () => {
     if (!content.tourPackage) {
       return <p>No tour package information available.</p>;
@@ -76,30 +75,40 @@ export default function AITourPackage() {
       const trimmedLine = line.trim();
 
       if (trimmedLine.startsWith('##')) {
-        currentSection = trimmedLine.replace('##', '').trim();
+        currentSection = trimmedLine.replace(/^#+\s*/, '').trim();
         return (
-          <h3 key={index} className="text-2xl font-bold mt-6 mb-3 text-white">
+          <h2 key={index} className="text-3xl font-bold mt-8 mb-4 text-white">
             {currentSection}
-          </h3>
+          </h2>
         );
       } else if (trimmedLine.startsWith('**')) {
-        const [key, ...valueParts] = trimmedLine.split(':');
+        const cleanedLine = trimmedLine.replace(/\*+/g, '').trim();
+        const [key, ...valueParts] = cleanedLine.split(':');
         const value = valueParts.join(':').trim();
+        
+        if (value) {
+          return (
+            <p key={index} className="mb-3 text-lg">
+              <span className="font-semibold">{key}: </span>
+              <span>{value}</span>
+            </p>
+          );
+        } else {
+          return (
+            <h3 key={index} className="text-2xl font-semibold mt-6 mb-3 text-white">
+              {key}
+            </h3>
+          );
+        }
+      } else if (trimmedLine.startsWith('*') || trimmedLine.startsWith('★')) {
         return (
-          <p key={index} className="mb-2">
-            <span className="font-semibold">{key.replace('**', '')}: </span>
-            <span>{value}</span>
-          </p>
-        );
-      } else if (trimmedLine.startsWith('★')) {
-        return (
-          <div key={index} className="flex items-start mb-2">
-            <Star className="text-white mr-2 mt-1" size={18} />
-            <p>{trimmedLine.substring(1).trim()}</p>
+          <div key={index} className="flex items-start mb-2 ml-4">
+            <Star className="text-white mr-2 mt-1 flex-shrink-0" size={18} />
+            <p className="text-lg">{trimmedLine.replace(/^[*★]\s*/, '')}</p>
           </div>
         );
       } else if (trimmedLine) {
-        return <p key={index} className="mb-2">{trimmedLine}</p>;
+        return <p key={index} className="mb-2 text-lg">{trimmedLine}</p>;
       }
       return null;
     }).filter(Boolean);
@@ -108,7 +117,7 @@ export default function AITourPackage() {
   return (
     <div className="bg-gradient-to-b from-black to-gray-900 text-white min-h-screen pt-20 px-4 md:px-8 m-0">
       <header className="mb-8 text-center">
-        <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">
+        <h1 className="text-5xl font-bold text-white">
           {destination}
         </h1>
       </header>
@@ -119,8 +128,8 @@ export default function AITourPackage() {
       </section>
 
       <section className="pb-8 bg-white bg-opacity-10 rounded-xl p-6 transition duration-300 hover:bg-opacity-20 hover:shadow-xl">
-        <h2 className="text-3xl font-semibold mb-6 text-white">Tour Packages for {destination}</h2>
-        <div className="space-y-4">
+        <h2 className="text-3xl font-semibold mb-6 text-white">Tour Package for {destination}</h2>
+        <div className="space-y-2">
           {renderTourPackage()}
         </div>
       </section>
