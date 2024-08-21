@@ -26,28 +26,28 @@ export async function TourDestDescription(destination) {
 export async function tourpkg(destination) {
     try {
       const prompt = `
-  Create a detailed tour package for ${destination}. 
+  Create a detailed tour package for **${destination}**. 
   The package should include the following:
   
-  1. Day-by-Day Itinerary: 
+  1. **Day-by-Day Itinerary**: 
      - Provide a detailed schedule for each day, including activities and timings.
   
-  2. Key Attractions: 
+  2. **Key Attractions**: 
      - Highlight the must-visit places in the area.
 
-  3. Recommended Activities: 
+  3. **Recommended Activities**: 
      - Suggest activities such as sightseeing, cultural experiences, adventure sports, etc.
 
-  4. Suggested Duration of Stay: 
+  4. **Suggested Duration of Stay**: 
      - Advise on the ideal length of stay for the tour package.
 
-  5. Important Travel Tips: 
+  5. **Important Travel Tips**: 
      - Include practical advice like the best time to visit, local customs, packing tips, etc.
 
-  6. Special Highlights: 
+  6. **Special Highlights**: 
      - Mention any unique aspects or experiences that travelers shouldn't miss.
 
-  7. Pricing:
+  7. **Pricing**:
      - Use Indian currency format for all costs.
 
 Ensure all sections are well-organized with appropriate headers and bullet points where necessary.
