@@ -63,37 +63,46 @@ export default function AITourPackage() {
   }
 
   const renderTourPackage = () => {
+    if (!content.tourPackage) {
+      return <p>No tour package information available.</p>;
+    }
+
     const lines = content.tourPackage.split('\n');
     let currentSection = null;
     
     return lines.map((line, index) => {
-      if (line.startsWith('##')) {
-        currentSection = line.replace('##', '').trim();
+      if (!line) return null;
+
+      const trimmedLine = line.trim();
+
+      if (trimmedLine.startsWith('##')) {
+        currentSection = trimmedLine.replace('##', '').trim();
         return (
           <h3 key={index} className="text-2xl font-bold mt-6 mb-3 text-yellow-400">
             {currentSection}
           </h3>
         );
-      } else if (line.startsWith('**')) {
-        const [key, value] = line.split(':');
+      } else if (trimmedLine.startsWith('**')) {
+        const [key, ...valueParts] = trimmedLine.split(':');
+        const value = valueParts.join(':').trim();
         return (
           <p key={index} className="mb-2">
             <span className="font-semibold">{key.replace('**', '')}: </span>
-            <span>{value.trim()}</span>
+            <span>{value}</span>
           </p>
         );
-      } else if (line.trim().startsWith('★')) {
+      } else if (trimmedLine.startsWith('★')) {
         return (
           <div key={index} className="flex items-start mb-2">
             <Star className="text-yellow-400 mr-2 mt-1" size={18} />
-            <p>{line.trim().substring(1).trim()}</p>
+            <p>{trimmedLine.substring(1).trim()}</p>
           </div>
         );
-      } else if (line.trim()) {
-        return <p key={index} className="mb-2">{line.trim()}</p>;
+      } else if (trimmedLine) {
+        return <p key={index} className="mb-2">{trimmedLine}</p>;
       }
       return null;
-    });
+    }).filter(Boolean);
   };
 
   return (
@@ -106,7 +115,7 @@ export default function AITourPackage() {
 
       <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl transition duration-300 hover:bg-opacity-20 hover:shadow-xl">
         <h2 className="text-3xl font-semibold mb-4 text-yellow-400">About {destination}</h2>
-        <p className="text-lg leading-relaxed">{content.description}</p>
+        <p className="text-lg leading-relaxed">{content.description || 'No description available.'}</p>
       </section>
 
       <section className="pb-8 bg-white bg-opacity-10 rounded-xl p-6 transition duration-300 hover:bg-opacity-20 hover:shadow-xl">
