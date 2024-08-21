@@ -142,7 +142,7 @@ export default function AIContentPage() {
       </section>
 
       {/* Travel Tips Section */}
-      <section className="pb-12  bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
+      <section className="pb-12 mb-12  bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
         <h2 className="text-3xl font-semibold mb-4">Travel Tips</h2>
         <ul className="list-disc pl-5 space-y-2">
           {Array.isArray(content.travelTips) &&
@@ -171,7 +171,7 @@ export default function AIContentPage() {
                 key={photo.id}
                 src={photo.src.medium}
                 alt={photo.photographer}
-                className="rounded-lg object-cover h-48 w-full transition duration-300 hover:shadow-lg"
+                className="rounded-lg object-cover h-80 w-full transition duration-300 hover:shadow-lg"
               />
             ))
           ) : (
