@@ -3,7 +3,7 @@ dotenv.config();
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY); // Update to the correct environment variable name
+const genAI = new GoogleGenerativeAI(process.env.API_KEY); // Update to the correct environment variable name
 
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
