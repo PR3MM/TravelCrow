@@ -65,15 +65,15 @@ export default function AITourPackage() {
     if (!content.tourPackage) {
       return <p>No tour package information available.</p>;
     }
-
+  
     const lines = content.tourPackage.split('\n');
     let currentSection = null;
-    
+  
     return lines.map((line, index) => {
       if (!line) return null;
-
+  
       const trimmedLine = line.trim();
-
+  
       if (trimmedLine.startsWith('##')) {
         currentSection = trimmedLine.replace(/^#+\s*/, '').trim();
         return (
@@ -82,7 +82,7 @@ export default function AITourPackage() {
           </h2>
         );
       } else if (trimmedLine.startsWith('**')) {
-        const cleanedLine = trimmedLine.replace(/\*+/g, '').trim();
+        const cleanedLine = trimmedLine.replace(/\*+/g, '').trim(); // Remove stars
         const [key, ...valueParts] = cleanedLine.split(':');
         const value = valueParts.join(':').trim();
         
@@ -113,6 +113,7 @@ export default function AITourPackage() {
       return null;
     }).filter(Boolean);
   };
+  
 
   return (
     <div className="bg-gradient-to-b from-black to-gray-900 text-white min-h-screen pt-20 px-4 md:px-8 m-0">
