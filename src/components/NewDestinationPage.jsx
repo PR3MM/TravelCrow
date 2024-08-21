@@ -18,7 +18,7 @@ const destinations = [
     name: "Jaipur",
     category: "Royal Heritage",
     description:
-      "Explore the vibrant city of Jaipur, known for its stunning palaces, forts, and rich Rajasthani heritage. Experience the grandeur of the Amber Fort and the elegance of the Hawa Mahal.",
+      "Explore the vibrant city of Jaipur, known for its stunning palaces, forts, and rich Rajasthani heritage. Experience the grandeur of the Amber Fort and the elegance of the iconic Hawa Mahal.",
     image:
       "https://img.freepik.com/premium-photo/amber-fort-jaipur-rajasthan-india-amber-fort-maota-lake-jaipur-rajasthan-india-ai-generated_585735-4856.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
@@ -38,7 +38,7 @@ const destinations = [
     name: "Goa",
     category: "Beach Paradise",
     description:
-      "Unwind in Goa, a coastal paradise known for its beautiful beaches, vibrant nightlife, and Portuguese heritage. Enjoy the sun, sea, and sand, and explore the charming streets of Old Goa.",
+      "Unwind in Goa, a coastal paradise known for its beautiful beaches, vibrant nightlife, and rich Portuguese heritage. Enjoy the sun, sea, and sand, and explore the charming streets of Old Goa.",
     image:
       "https://img.freepik.com/free-photo/miami-bayside-marketplace_23-2151599535.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
@@ -48,7 +48,7 @@ const destinations = [
     name: "Kerala",
     category: "Backwater Bliss",
     description:
-      "Discover the serene backwaters of Kerala, a tropical paradise known for its lush greenery, tranquil waterways, and rich cultural heritage. Enjoy a peaceful houseboat cruise through the picturesque canals.",
+      "Discover the serene backwaters of Kerala, a tropical paradise known for its lush greenery beauty, tranquil waterways, and rich cultural heritage. Enjoy a peaceful houseboat cruise through the picturesque canals.",
     image:
       "https://img.freepik.com/premium-photo/houseboat-kerala-backwaters-india_163782-3931.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
@@ -88,7 +88,7 @@ const destinations = [
     name: "Amritsar",
     category: "Cultural Splendor",
     description:
-      "Visit Amritsar, home to the Golden Temple, one of the holiest Sikh shrines. Experience the rich culture, history, and spirituality of this vibrant city in Punjab, and witness the daily ceremonies at the temple.",
+      "Visit Amritsar, home to the iconic Golden Temple, one of the holiest Sikh shrines. Experience the rich culture, history, and spirituality of this vibrant city in Punjab, and witness the daily ceremonies at the temple.",
     image:
       "https://img.freepik.com/premium-photo/golden-temple-amritsar-punjab-india-most-sacred-icon-worship-place-sikh-religion_107467-416.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
@@ -108,7 +108,7 @@ const destinations = [
     name: "Hampi",
     category: "Ancient Ruins",
     description:
-      "Step back in time at Hampi, a UNESCO World Heritage Site known for its ancient temples, ruins, and boulders. Explore the fascinating history and unique landscape of this archaeological marvel.",
+      "Step back in time at Hampi, a UNESCO World Heritage Site known for its ancient temples, ruins, and boulders. Explore the fascinating rich history and unique landscape of this archaeological marvel.",
     image:
       "https://img.freepik.com/premium-photo/hampi-hampe-also-referred-as-group-monuments-hampi_558469-995.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
@@ -118,7 +118,7 @@ const destinations = [
     name: "Mysore",
     category: "Royal Grandeur",
     description:
-      "Discover the royal grandeur of Mysore, known for its majestic palaces, vibrant festivals, and rich history. Visit the iconic Mysore Palace and enjoy the city's cultural heritage.",
+      "Discover the royal grandeur of Mysore, known for its majestic palaces, vibrant festivals, and rich culture and history. Visit the iconic Mysore Palace and enjoy the city's cultural heritage.",
     image:
       "https://img.freepik.com/premium-photo/mysore-india-view-sri-chamundeshwari-temple-located-chamundi-hills-near-mysore_380726-700.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
