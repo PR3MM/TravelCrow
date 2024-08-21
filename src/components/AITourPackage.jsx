@@ -116,7 +116,7 @@ export default function AITourPackage() {
   
 
   return (
-    <div className="bg-gradient-to-b from-black to-gray-900 text-white min-h-screen pt-20 px-4 md:px-8 m-0">
+    <div className="bg-black text-white min-h-screen pt-20 px-4 md:px-8 m-0">
       <header className="mb-8 text-center">
         <h1 className="text-5xl font-bold text-white">
           {destination}
