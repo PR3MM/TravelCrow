@@ -25,7 +25,9 @@ export async function TourDestDescription(destination) {
 
 export async function tourpkg(destination) {
     try {
-      const prompt = `Create a detailed tour package for ${destination}. Include a day-by-day itinerary, key attractions, recommended activities, suggested duration of stay, and any important travel tips or special highlights. use indian currency format.`
+      const prompt = `Create a detailed tour package for ${destination}. Include a day-by-day itinerary, key attractions, recommended activities, suggested duration of stay, and any important travel tips or special highlights. use indian currency format.
+      Use proper formatting and bullet points.
+      `
 
       const result = await model.generateContent(prompt);
       const response = await result.response;

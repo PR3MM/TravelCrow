@@ -114,12 +114,12 @@ export default function AITourPackage() {
       </header>
 
       <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl transition duration-300 hover:bg-opacity-20 hover:shadow-xl">
-        <h2 className="text-3xl font-semibold mb-4 text-yellow-400">About {destination}</h2>
+        <h2 className="text-3xl font-semibold mb-4 text-white">About {destination}</h2>
         <p className="text-lg leading-relaxed">{content.description || 'No description available.'}</p>
       </section>
 
       <section className="pb-8 bg-white bg-opacity-10 rounded-xl p-6 transition duration-300 hover:bg-opacity-20 hover:shadow-xl">
-        <h2 className="text-3xl font-semibold mb-6 text-yellow-400">Tour Packages for {destination}</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-white">Tour Packages for {destination}</h2>
         <div className="space-y-4">
           {renderTourPackage()}
         </div>
