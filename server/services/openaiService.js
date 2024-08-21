@@ -1,130 +1,88 @@
 import dotenv from "dotenv";
 dotenv.config(); 
 
-import OpenAI from "openai";
-import axios from "axios";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const openai = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey : process.env.OPENAI_API_KEY ,
-  Model : process.env.MODEL
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY); // Update to the correct environment variable name
 
-  
-});
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-// export async function generateDescription(destination) {
-//   const response = await openai.chat.completions.create({
-//     // model: "gpt-3.5-turbo",
-//     model: "meta-llama/llama-3.1-8b-instruct:free",
-//     messages: [
-//       { role: "system", content: "You are a knowledgeable travel guide. Provide a brief, engaging description of the destination." },
-//       { role: "user", content: `Describe ${destination} in about 100 words.` }
-//     ],
-//     max_tokens: 150
-//   });
-//   return response.choices[0].message.content.trim();
-// }
 export async function generateDescription(destination) {
-  const response = await openai.chat.completions.create({
-    model: "meta-llama/llama-3.1-8b-instruct:free",
-    messages: [
-      {
-        role: "system",
-        content:
-          "You are a knowledgeable travel guide. Provide a brief, engaging description of the destination.",
-      },
-      { role: "user", content: `Describe ${destination} in about 100 words.` },
-    ],
-  });
-  return response.choices[0].message.content.trim();
+  try {
+    const prompt = `Describe ${destination} in about 100 words.`;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = await response.text();
+    return text.trim();
+  } catch (error) {
+    console.error("Error generating description:", error);
+    throw new Error("Failed to generate description.");
+  }
 }
+
 export async function generateExtraDescription(destination) {
-  const response = await openai.chat.completions.create({
-    model: "meta-llama/llama-3.1-8b-instruct:free",
-    messages: [
-      {
-        role: "system",
-        content:
-          "You are a Historian travel assistant.. Provide a brief, engaging description of the destination.",
-      },
-      {
-        role: "user",
-        content: `Give a brief, engaging description of Historical Background of ${destination} in about 100 words.`,
-      },
-    ],
-  });
-  return response.choices[0].message.content
-    .split("\n")
-    .filter((line) => line.trim() !== "");
+  try {
+    const prompt = `Give a brief, engaging description of the Historical Background of ${destination} in about 100 words.`;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = await response.text();
+    return text.trim().split("\n").filter(line => line.trim() !== "");
+  } catch (error) {
+    console.error("Error generating extra description:", error);
+    throw new Error("Failed to generate extra description.");
+  }
 }
 
 export async function generateAttractions(destination) {
-  const response = await openai.chat.completions.create({
-    model: "meta-llama/llama-3.1-8b-instruct:free",
-    messages: [
-      {
-        role: "system",
-        content:
-          "You are a helpful travel assistant. List 5 popular attractions, one per line.",
-      },
-      { role: "user", content: `List 5 popular attractions in ${destination}` },
-    ],
-  });
-  return response.choices[0].message.content
-    .split("\n")
-    .filter((line) => line.trim() !== "");
+  try {
+    const prompt = `List 5 popular attractions in ${destination}, one per line.`;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = await response.text();
+    return text.trim().split("\n").filter(line => line.trim() !== "");
+  } catch (error) {
+    console.error("Error generating attractions:", error);
+    throw new Error("Failed to generate attractions.");
+  }
 }
+
 export async function generateHiddenAttractions(destination) {
-  const response = await openai.chat.completions.create({
-    model: "meta-llama/llama-3.1-8b-instruct:free",
-    messages: [
-      {
-        role: "system",
-        content:
-          "You are a helpful travel assistant. List 5 Hidden attractions, one per line.",
-      },
-      { role: "user", content: `List 5 Hidden attractions in or near ${destination}` },
-    ],
-    max_tokens: 150
-  });
-  return response.choices[0].message.content
-    .split("\n")
-    .filter((line) => line.trim() !== "");
+  try {
+    const prompt = `List 5 Hidden attractions in or near ${destination}, one per line.`;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = await response.text();
+    return text.trim().split("\n").filter(line => line.trim() !== "");
+  } catch (error) {
+    console.error("Error generating hidden attractions:", error);
+    throw new Error("Failed to generate hidden attractions.");
+  }
 }
 
 export async function generateTravelTips(destination) {
-  const response = await openai.chat.completions.create({
-    model: "meta-llama/llama-3.1-8b-instruct:free",
-
-    messages: [
-      {
-        role: "system",
-        content:
-          "You are a seasoned traveler. Provide 3 useful travel tips, one per line.",
-      },
-      {
-        role: "user",
-        content: `Give 3 travel tips for visiting ${destination}`,
-      },
-    ],
-    max_tokens: 150,
-  });
-  return response.choices[0].message.content
-    .split("\n")
-    .filter((line) => line.trim() !== "");
+  try {
+    const prompt = `Give 3 travel tips for visiting ${destination}, one per line.`;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = await response.text();
+    return text.trim().split("\n").filter(line => line.trim() !== "");
+  } catch (error) {
+    console.error("Error generating travel tips:", error);
+    throw new Error("Failed to generate travel tips.");
+  }
 }
 
 export async function generatePhotos(destination) {
-  const response = await post('https://api.openai.com/v1/images/generations', {
-    prompt: `Beautiful photograph of ${destination}`,
-    n: 4,
-    size: "1024x1024"
-  }, {
-    headers: {
-      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-      'Content-Type': 'application/json'
-    }
-  });
-  return response.data.data.map(item => item.url);
+  try {
+    const prompt = `Generate a beautiful photograph of ${destination}.`;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = await response.text();
+    // Assuming the response text contains URLs or image data
+    // Adjust according to the actual response structure
+    return text.trim().split("\n").filter(line => line.trim() !== "");
+  } catch (error) {
+    console.error("Error generating photos:", error);
+    throw new Error("Failed to generate photos.");
+  }
 }
-  
