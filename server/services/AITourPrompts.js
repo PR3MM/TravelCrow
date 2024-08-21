@@ -26,7 +26,7 @@ export async function TourDestDescription(destination) {
 export async function tourpkg(destination) {
     try {
       const prompt = `
-  Create a detailed tour package for **${destination}**. 
+  Create a detailed tour package for ${destination}. 
   The package should include the following:
   
   1. **Day-by-Day Itinerary**: 
