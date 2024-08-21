@@ -51,7 +51,7 @@ export async function tourpkg(destination) {
      - Use Indian currency format for all costs.
 
 Ensure all sections are well-organized with appropriate headers and bullet points where necessary.
-Do not use any stars as a bullet point.
+Do not use any stars as a bullet point. Use plain text ,no stars and symbols
 `;
 
 
