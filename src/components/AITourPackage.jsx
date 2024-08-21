@@ -48,19 +48,24 @@ export default function AITourPackage() {
 
   if (error) {
     return (
-      <div className="flex items-center justify-center h-screen text-lg text-white bg-black">
-        <div className="text-center">
-          <p className="mb-4">An error occurred: {error}</p>
-          <button
-            className="bg-white text-black px-4 py-2 rounded-md hover:bg-gray-200 transition duration-300"
-            onClick={() => window.location.reload()}
-          >
-            Retry
-          </button>
-        </div>
+      <div className="flex flex-col items-center justify-center h-screen text-lg text-white bg-black p-6">
+        <p className="mb-4 text-center">
+          📈 Due to the overwhelming popularity, we’re currently facing some issues. 
+          Don’t worry, our team is working hard to resolve this as quickly as possible!
+        </p>
+        <p className="mb-4 text-center">
+          Unfortunately, an error occurred: {error}. Please try again.
+        </p>
+        <button
+          className="bg-white text-black px-6 py-3 rounded-md shadow-md hover:bg-gray-200 transition duration-300"
+          onClick={() => window.location.reload()}
+        >
+          Try Again
+        </button>
       </div>
     );
   }
+  
   const renderTourPackage = () => {
     if (!content.tourPackage) {
       return <p>No tour package information available.</p>;
