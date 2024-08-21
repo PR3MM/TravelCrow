@@ -48,7 +48,7 @@ const destinations = [
     name: "Kerala",
     category: "Backwater Bliss",
     description:
-      "Discover the serene backwaters of Kerala, a tropical paradise known for its lush greenery beauty, tranquil waterways, and rich cultural heritage. Enjoy a peaceful houseboat cruise through the picturesque canals.",
+      "Discover the serene backwaters of Kerala, a tropical paradise known for its lush greenery beauty, tranquil waterways, and rich cultural heritage and history. Enjoy a peaceful houseboat cruise through the picturesque canals.",
     image:
       "https://img.freepik.com/premium-photo/houseboat-kerala-backwaters-india_163782-3931.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
@@ -108,7 +108,7 @@ const destinations = [
     name: "Hampi",
     category: "Ancient Ruins",
     description:
-      "Step back in time at Hampi, a UNESCO World Heritage Site known for its ancient temples, ruins, and boulders. Explore the fascinating rich history and unique landscape of this archaeological marvel.",
+      "Step back in time at Hampi, an iconic UNESCO World Heritage Site known for its ancient temples, ruins, and boulders. Explore the fascinating rich history and unique landscape of this archaeological marvel.",
     image:
       "https://img.freepik.com/premium-photo/hampi-hampe-also-referred-as-group-monuments-hampi_558469-995.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
@@ -118,7 +118,7 @@ const destinations = [
     name: "Mysore",
     category: "Royal Grandeur",
     description:
-      "Discover the royal grandeur of Mysore, known for its majestic palaces, vibrant festivals, and rich culture and history. Visit the iconic Mysore Palace and enjoy the city's cultural heritage.",
+      "Discover the royal grandeur of Mysore, known for its majestic palaces, vibrant festivals, and rich culture and history. Visit the iconic Mysore Palace and enjoy the city's cultural heritage. Visit the iconic temple",
     image:
       "https://img.freepik.com/premium-photo/mysore-india-view-sri-chamundeshwari-temple-located-chamundi-hills-near-mysore_380726-700.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription:
