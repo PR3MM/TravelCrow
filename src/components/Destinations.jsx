@@ -11,7 +11,7 @@ const destinations = [
   {
     name: "Jaipur",
     category: "Royal Heritage",
-    description: "Explore the vibrant city of Jaipur, known for its stunning palaces, forts, and rich Rajasthani heritage. Experience the grandeur of the Amber Fort and the elegance of the Hawa Mahal.",
+    description: "Explore the vibrant city of Jaipur, known for its stunning palaces, forts, and rich Rajasthani heritage. Experience the grandeur of the Amber Fort and the elegance of the iconic Hawa Mahal.",
     image: "https://img.freepik.com/premium-photo/amber-fort-jaipur-rajasthan-india-amber-fort-maota-lake-jaipur-rajasthan-india-ai-generated_585735-4856.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription: "A monochrome aerial view of Jaipur's Amber Fort, highlighting its intricate architecture and the surrounding Aravalli Hills."
   },
@@ -25,7 +25,7 @@ const destinations = [
   {
     name: "Goa",
     category: "Beach Paradise",
-    description: "Unwind in Goa, a coastal paradise known for its beautiful beaches, vibrant nightlife, and Portuguese heritage. Enjoy the sun, sea, and sand, and explore the charming streets of Old Goa.",
+    description: "Unwind in Goa, a coastal paradise known for its beautiful beaches, vibrant nightlife, and rich Portuguese heritage. Enjoy the sun, sea, and sand, and explore the charming streets of Old Goa.",
     image: "https://img.freepik.com/free-photo/miami-bayside-marketplace_23-2151599535.jpg?ga=GA1.1.1187748767.1708226618&semt=ais_hybrid",
     imageDescription: "A striking black and white photograph of a palm-fringed Goan beach at sunset, with traditional fishing boats in the foreground."
   }
