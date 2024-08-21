@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export default function AIContentPage() {
   const { destination } = useParams();
@@ -13,9 +14,11 @@ export default function AIContentPage() {
     travelTips: [],
   });
   const [error, setError] = useState(null);
+  const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
     fetchAIContent();
+    fetchPexelsPhotos();
   }, [destination]);
 
   const fetchAIContent = async () => {
@@ -24,8 +27,6 @@ export default function AIContentPage() {
     try {
       const response = await fetch(
         `https://travelcrow.onrender.com/api/ai-content/${destination}`
-      // const response = await fetch(
-      //   `http://localhost:3000/api/ai-content/${destination}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch AI content");
@@ -46,12 +47,31 @@ export default function AIContentPage() {
     }
   };
 
+  const fetchPexelsPhotos = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.pexels.com/v1/search?query=${destination}&per_page=10`,
+        {
+          headers: {
+            Authorization: import.meta.env.VITE_APP_PEXELS_API_KEY,
+          },
+        }
+      );
+      setPhotos(response.data.photos);
+    } catch (err) {
+      console.error("Error fetching photos from Pexels:", err);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen text-lg text-white bg-black">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white mx-auto mb-4"></div>
-          <p>Loading... Please wait while we fetch amazing content for {destination}</p>
+          <p>
+            Loading... Please wait while we fetch amazing content for{" "}
+            {destination}
+          </p>
         </div>
       </div>
     );
@@ -71,7 +91,6 @@ export default function AIContentPage() {
     );
   }
 
-
   return (
     <div className="bg-black text-white min-h-screen pt-20 px-4 sm:px-8 md:px-16">
       <header className="mb-8 text-center">
@@ -83,16 +102,19 @@ export default function AIContentPage() {
         </p>
       </header>
 
+      {/* About Section */}
       <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
         <h2 className="text-3xl font-semibold mb-4">About {destination}</h2>
         <p className="text-lg leading-relaxed">{content.description}</p>
       </section>
 
+      {/* History Section */}
       <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
         <h2 className="text-3xl font-semibold mb-4">History and Culture</h2>
         <p className="text-lg leading-relaxed">{content.history}</p>
       </section>
 
+      {/* Top Attractions Section */}
       <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
         <h2 className="text-3xl font-semibold mb-4">Top Attractions</h2>
         <ul className="list-disc pl-5 space-y-2">
@@ -113,33 +135,13 @@ export default function AIContentPage() {
         </ul>
       </section>
 
+      {/* Hidden Attractions Section */}
       <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
-        <h2 className="text-3xl font-semibold mb-4">
-          Top Hidden Attractions
-        </h2>
-        <p className="text-lg leading-relaxed">
-          {content.Hiddenattractions}
-        </p>
+        <h2 className="text-3xl font-semibold mb-4">Top Hidden Attractions</h2>
+        <p className="text-lg leading-relaxed">{content.Hiddenattractions}</p>
       </section>
 
-      {/* <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
-        <h2 className="text-3xl font-semibold mb-4">Photo Gallery</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {content.photos.length > 0 ? (
-            content.photos.map((photo, index) => (
-              <img
-                key={index}
-                src={photo}
-                alt={`${destination} - Photo ${index + 1}`}
-                className="w-full h-64 object-cover rounded-lg shadow-lg hover:opacity-90 transition duration-300"
-              />
-            ))
-          ) : (
-            <p className="text-lg text-gray-500">No photos available</p>
-          )}
-        </div>
-      </section> */}
-
+      {/* Travel Tips Section */}
       <section className="pb-12  bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
         <h2 className="text-3xl font-semibold mb-4">Travel Tips</h2>
         <ul className="list-disc pl-5 space-y-2">
@@ -157,6 +159,27 @@ export default function AIContentPage() {
             <li className="text-lg text-gray-500">No travel tips available</li>
           )}
         </ul>
+      </section>
+
+      {/* Photos Section */}
+      <section className="mb-12 p-6 bg-white bg-opacity-10 rounded-xl p-8 transition duration-300 hover:bg-opacity-20 hover:shadow-xl rounded-lg shadow-lg">
+        <h2 className="text-3xl font-semibold mb-4">Photos of {destination}</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {photos.length > 0 ? (
+            photos.map((photo) => (
+              <img
+                key={photo.id}
+                src={photo.src.medium}
+                alt={photo.photographer}
+                className="rounded-lg object-cover h-48 w-full transition duration-300 hover:shadow-lg"
+              />
+            ))
+          ) : (
+            <p className="text-lg text-gray-500">
+              No photos available for {destination}
+            </p>
+          )}
+        </div>
       </section>
     </div>
   );
