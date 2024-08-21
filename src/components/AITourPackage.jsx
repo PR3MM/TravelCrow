@@ -78,7 +78,7 @@ export default function AITourPackage() {
       if (trimmedLine.startsWith('##')) {
         currentSection = trimmedLine.replace('##', '').trim();
         return (
-          <h3 key={index} className="text-2xl font-bold mt-6 mb-3 text-yellow-400">
+          <h3 key={index} className="text-2xl font-bold mt-6 mb-3 text-white">
             {currentSection}
           </h3>
         );
@@ -94,7 +94,7 @@ export default function AITourPackage() {
       } else if (trimmedLine.startsWith('★')) {
         return (
           <div key={index} className="flex items-start mb-2">
-            <Star className="text-yellow-400 mr-2 mt-1" size={18} />
+            <Star className="text-white mr-2 mt-1" size={18} />
             <p>{trimmedLine.substring(1).trim()}</p>
           </div>
         );
