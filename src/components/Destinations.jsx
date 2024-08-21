@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const destinations = [
   {
@@ -60,9 +61,9 @@ function Destinations() {
                 <h3 className="text-sm font-medium text-gray-400 mb-2">{destination.category}</h3>
                 <h2 className="text-2xl font-bold mb-4">{destination.name}</h2>
                 <p className="text-gray-300 mb-6">{destination.description}</p>
-                <a href="#" className="inline-block bg-white text-black font-bold py-2 px-4 rounded hover:bg-gray-200 transition duration-300">
+                <Link to={`/destination/${destination.name}`} className="inline-block bg-white text-black font-bold py-2 px-4 rounded hover:bg-gray-200 transition duration-300">
                   Explore
-                </a>
+                </Link>
               </div>
             </div>
           ))}
