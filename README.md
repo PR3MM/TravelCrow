@@ -40,6 +40,17 @@ To get a local copy up and running, follow these simple steps:
    ```bash
    npm run dev
 
+   Open your browser and visit `http://localhost:5173` to see the application.
+
+## Available Scripts
+
+In the project directory, you can run:
+
+- `npm run dev`: Runs the app in development mode.
+- `npm run build`: Builds the app for production to the `dist` folder.
+- `npm run preview`: Locally preview the production build.
+- `npm run lint`: Runs the linter to check for code style issues.
+
 ## 📧 Contact
 
 - **Premved Dhote** 
